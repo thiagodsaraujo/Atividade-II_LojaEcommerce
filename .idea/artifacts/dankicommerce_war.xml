@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dankicommerce:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>dankicommerce</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="dankicommerce.war">
+      <element id="artifact" artifact-name="dankicommerce:war exploded" />
+    </root>
+  </artifact>
+</component>
