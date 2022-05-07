@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.dankicommerce.model.Usuario;
 import br.com.olimposistema.aipa.dao.DAO;
@@ -26,12 +27,13 @@ public class CadastrarController {
 	
 	@Get("")
 	public void cadastrar() {
-		System.out.println("CADASTRAR");
+
 	}
 
-	
+	@IncludeParameters // por debaixo dos panos, todo parametro que passar para o método ele é auto incluido no jsp
 	@Post("salvaUsuario")
 	public void salvaUsuario(@Valid Usuario usuario) {
+
 		// se tiver erro na validação redireciona para cadastrar novamente, vai redirecionar para a mesma classe(this)
 		
 		validator.onErrorRedirectTo(this).cadastrar();
@@ -39,8 +41,11 @@ public class CadastrarController {
 		// salvar no bd
 		// usuarioDAO.insert(usuario)/update/delete/searchById
 		// nao vai precisar usar mais o entity manager, usaremos o DAO
+		
 		usuarioDAO.insert(usuario);
+		
 		// depois que persistir a classe vai redirecionar para a lsitagem de produtos
+		
 		result.redirectTo(ProdutosController.class).produtos();
 	}
 }
