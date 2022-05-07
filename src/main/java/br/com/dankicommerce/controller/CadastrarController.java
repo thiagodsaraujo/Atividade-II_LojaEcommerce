@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.dankicommerce.model.Usuario;
 import br.com.olimposistema.aipa.dao.DAO;
@@ -32,10 +33,11 @@ public class CadastrarController {
 
 	@IncludeParameters // por debaixo dos panos, todo parametro que passar para o método ele é auto incluido no jsp
 	@Post("salvaUsuario")
-	public void salvaUsuario(@Valid Usuario usuario) {
+	public void salvaUsuario(@Valid Usuario usuario, String confirmaSenha) {
 
 		// se tiver erro na validação redireciona para cadastrar novamente, vai redirecionar para a mesma classe(this)
-		
+		boolean asSenhasSaoIguais = usuario.getSenha().equals(confirmaSenha);
+		validator.ensure(asSenhasSaoIguais, new SimpleMessage("ERRO!", "As senhas não coincidem!"));
 		validator.onErrorRedirectTo(this).cadastrar();
 		
 		// salvar no bd

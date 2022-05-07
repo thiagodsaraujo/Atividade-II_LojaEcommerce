@@ -27,9 +27,10 @@ public class Usuario extends Model{
 	@NotEmpty(message = "usuario.email.vazio") @Email(message = "usuario.email.validacao")
 	private String email;
 	
-	@NotEmpty(message = "{usuario.senha.vazio}") @Size(min = 4, max = 100, message = "{usuario.senha.size}")
+	@NotEmpty(message = "{usuario.senha.vazio}") @Size(min = 4, max = 20, message = "{usuario.senha.size}")
 	private String senha;
 	
+	@NotEmpty(message = "{usuario.login.vazio}") @Size(min = 4, max = 30, message = "{usuario.login.size}")
 	private String login;
 	
 
