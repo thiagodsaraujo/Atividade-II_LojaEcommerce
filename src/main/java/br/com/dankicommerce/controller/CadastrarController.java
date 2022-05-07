@@ -2,12 +2,14 @@ package br.com.dankicommerce.controller;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.validation.Valid;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.dankicommerce.model.Usuario;
 import br.com.olimposistema.aipa.dao.DAO;
 
@@ -19,6 +21,7 @@ public class CadastrarController {
 	@Inject EntityManager em;
 	@Inject Result result;
 	@Inject DAO<Usuario> usuarioDAO;
+	@Inject Validator validator;
 	
 	
 	@Get("")
@@ -28,7 +31,11 @@ public class CadastrarController {
 
 	
 	@Post("salvaUsuario")
-	public void salvaUsuario(Usuario usuario) {
+	public void salvaUsuario(@Valid Usuario usuario) {
+		// se tiver erro na validação redireciona para cadastrar novamente, vai redirecionar para a mesma classe(this)
+		
+		validator.onErrorRedirectTo(this).cadastrar();
+		
 		// salvar no bd
 		// usuarioDAO.insert(usuario)/update/delete/searchById
 		// nao vai precisar usar mais o entity manager, usaremos o DAO

@@ -21,13 +21,13 @@ public class Usuario extends Model{
 	
 	
 	// quando for string é melhor usar NotEmpty, que ja tem o notnull dentro dele
-	@NotEmpty @Size(min = 3, max = 100)
+	@NotEmpty(message = "{usuario.nome.vazio}") @Size(min = 3, max = 100, message = "{usuario.nome.size}")
 	private String nome;
 	
 	@NotEmpty @Email
 	private String email;
 	
-	@NotEmpty @Size(min = 4, max = 100)
+	@NotEmpty(message = "{usuario.senha.vazio}") @Size(min = 4, max = 100, message = "{usuario.senha.size}")
 	private String senha;
 	
 	private String login;
