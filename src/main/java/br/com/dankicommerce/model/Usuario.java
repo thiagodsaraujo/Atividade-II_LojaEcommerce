@@ -1,8 +1,14 @@
 package br.com.dankicommerce.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Usuario {
 	
-	
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String nome;
@@ -11,6 +17,10 @@ public class Usuario {
 	
 	private String senha;
 	
+	private String login;
+	
+
+
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
@@ -22,13 +32,21 @@ public class Usuario {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toUpperCase();
 	}
 
 	public String getEmail() {
