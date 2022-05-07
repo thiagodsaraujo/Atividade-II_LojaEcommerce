@@ -14,6 +14,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.dankicommerce.dao.UsuarioDAO;
 import br.com.dankicommerce.model.Usuario;
 import br.com.olimposistema.aipa.dao.DAO;
 
@@ -25,7 +26,7 @@ public class LoginController {
 	
 	@Inject Result result;
 	@Inject Validator validator;
-	@Inject DAO<Usuario> usuarioDao;
+	@Inject UsuarioDAO usuarioDao;
 
 	
 	@Get("")
@@ -39,9 +40,10 @@ public class LoginController {
 			@NotEmpty @Size(min = 4, max = 20, message = "{usuario.senha.size}")String senha) {
 		validator.onErrorRedirectTo(this).login();
 		
-		Usuario usiario = usuarioDao.existeUsuarioCom(email, senha);
+		Usuario usuario = usuarioDao.existeUsuarioCom(email, senha);
 		
 		validator.addIf(usuario == null, new SimpleMessage("erro", "Email ou Senha inválidos"));
+		validator.onErrorRedirectTo(this).login();
 		
 		result.redirectTo(ProdutosController.class).produtos();
 	}

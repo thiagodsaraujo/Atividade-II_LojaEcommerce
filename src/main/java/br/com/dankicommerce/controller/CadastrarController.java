@@ -12,6 +12,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.dankicommerce.dao.UsuarioDAO;
 import br.com.dankicommerce.model.Usuario;
 import br.com.olimposistema.aipa.dao.DAO;
 
@@ -22,7 +23,7 @@ public class CadastrarController {
 	
 	@Inject EntityManager em;
 	@Inject Result result;
-	@Inject DAO<Usuario> usuarioDAO;
+	@Inject UsuarioDAO usuarioDAO;
 	@Inject Validator validator;
 	
 	
