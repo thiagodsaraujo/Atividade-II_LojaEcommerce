@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page language="java"%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -74,7 +79,7 @@
                                 <select class="form-control input-login mx-auto" id="email" required="required"
                                   data-validation-required-message="Please enter your email address.">
                                   <option>Roupas</option>
-                                  <option>Acessórios</option>
+                                  <option>AcessÃ³rios</option>
                                 </select>
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -94,7 +99,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © DankiCommerce 2021</div>
+                    <div class="col-lg-4 text-lg-left">Copyright Â© DankiCommerce 2021</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>

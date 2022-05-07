@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page language="java"%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -57,13 +62,13 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col">AÃ§Ãµes</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>Acessórios</td>
+                        <td>AcessÃ³rios</td>
                         <td>
                             <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-info" type="button">
                                 <i class="fas fa-edit"></i>   
@@ -87,7 +92,7 @@
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td>Eletrônicos</td>
+                        <td>EletrÃ´nicos</td>
                         <td>
                             <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-info"  type="button">
                                 <i class="fas fa-edit"></i>   
@@ -106,7 +111,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © DankiCommerce 2021</div>
+                    <div class="col-lg-4 text-lg-left">Copyright Â© DankiCommerce 2021</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
