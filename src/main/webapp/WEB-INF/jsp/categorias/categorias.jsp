@@ -38,7 +38,7 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase mb-3">Categorias</h2>
                 </div>
-                <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-success mb-3"  type="button">
+                <button title="Editar" onclick="window.location.href='formcategoria'" class="btn btn-success mb-3"  type="button">
                     <i class="fas fa-plus mr 1"></i> 
                     Nova Categoria  
                 </button>
