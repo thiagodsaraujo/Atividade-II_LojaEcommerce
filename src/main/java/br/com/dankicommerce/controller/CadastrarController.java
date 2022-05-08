@@ -2,6 +2,7 @@ package br.com.dankicommerce.controller;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import br.com.caelum.vraptor.Controller;
@@ -25,6 +26,7 @@ public class CadastrarController {
 	@Inject Result result;
 	@Inject UsuarioDAO usuarioDAO;
 	@Inject Validator validator;
+	@Inject HttpSession session;
 	
 	
 	@Get("")
@@ -46,6 +48,7 @@ public class CadastrarController {
 		// nao vai precisar usar mais o entity manager, usaremos o DAO
 		
 		usuarioDAO.insert(usuario);
+		session.setAttribute("usuarioLogado", usuario);
 		
 		// depois que persistir a classe vai redirecionar para a lsitagem de produtos
 		

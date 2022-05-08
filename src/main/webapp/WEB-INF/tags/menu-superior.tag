@@ -11,16 +11,27 @@
 			Menu <i class="fas fa-bars ml-1"></i>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav text-uppercase ml-auto">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="<c:url value="categorias"/>">Categorias</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="<c:url value="produtos"/>">Produtos</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="<c:url value="login"/>">Login</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="<c:url value="cadastrar"/>">Cadastrar-se</a></li>
-			</ul>
+			<c:if test="${usuarioLogado != null}">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="<c:url value="categorias"/>">Categorias</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="<c:url value="produtos"/>">Produtos</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="<c:url value="logout"/>">Sair</a></li>
+				</ul>
+			</c:if>
+
+			<c:if test="${usuarioLogado == null}">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="<c:url value="produtos"/>">Produtos</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="<c:url value="login"/>">Login</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="<c:url value="cadastrar"/>">Cadastrar-se</a></li>
+				</ul>
+			</c:if>
 		</div>
 	</div>
 </nav>
