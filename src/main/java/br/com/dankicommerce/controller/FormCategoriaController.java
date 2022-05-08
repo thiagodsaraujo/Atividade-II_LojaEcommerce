@@ -14,6 +14,7 @@ import br.com.caelum.vraptor.validator.Validator;
 import br.com.dankicommerce.interceptors.SomenteLogado;
 import br.com.dankicommerce.model.Categoria;
 import br.com.olimposistema.aipa.dao.DAO;
+import br.com.olimposistema.aipa.service.Util;
 
 @Controller
 @Path("formcategoria")
@@ -24,16 +25,22 @@ public class FormCategoriaController {
 	@Inject Result result;
 
 	@Get("") @SomenteLogado
-	public void formcategoria() {
-		
+	public void formcategoria(Categoria categoria) {
+		// se a categoria tiver um id, vai buscar no bd e vai disponibilizar no formcategoria e disponibilizar na view
+		if(Util.isNotNull(categoria) 
+		&& Util.isPositivo(categoria.getId())) {
+			Categoria categoriaDoBanco = categoriaDao.selectPorId(categoria);
+			result.include("categoria", categoriaDoBanco);
+		}
 	}
+	
 	
 	@IncludeParameters
 	@Post("salvaCategoria")
 	@SomenteLogado
 	public void salvaCategoria(@Valid Categoria categoria) {
-		validator.onErrorRedirectTo(this).formcategoria();
-		categoriaDao.insert(categoria);
+		validator.onErrorRedirectTo(this).formcategoria(categoria);
+		categoriaDao.insertOrUpdate(categoria);
 		result.redirectTo(CategoriasController.class).categorias();
 		
 		

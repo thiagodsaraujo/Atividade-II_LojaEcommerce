@@ -57,7 +57,7 @@
                         <th scope="row">${categoria.id}</th>
                         <td>${categoria.nome}</td>
                         <td>
-                            <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-info" type="button">
+                            <button title="Editar" onclick="window.location.href='formcategoria?categoria.id=${categoria.id}'" class="btn btn-info" type="button">
                                 <i class="fas fa-edit"></i>   
                             </button>
                             <button title="Excluir" onclick="window.location.href='deletacategoria/${categoria.id}'" class="btn btn-danger" type="button">
