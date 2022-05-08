@@ -77,9 +77,9 @@
 	<section class="page-section" id="beneficios">
 		<div class="container">
 			<div class="text-center">
-				<h2 class="section-heading text-uppercase">BenefÃ­cios</h2>
+				<h2 class="section-heading text-uppercase">Beneficios</h2>
 				<h3 class="section-subheading text-muted">Aqui na DankiCommerce
-					vocÃª encontra os melhores preÃ§os!</h3>
+					você encontra os melhores preços!</h3>
 			</div>
 			<div class="row text-center">
 				<div class="col-md-4">
@@ -87,9 +87,9 @@
 						class="fas fa-circle fa-stack-2x text-primary"></i> <i
 						class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
 					</span>
-					<h4 class="my-3">RÃ¡pido</h4>
-					<p class="text-muted">Aqui vocÃª encontra e realiza sua compra
-						de maneira prÃ¡tica e rÃ¡pida!</p>
+					<h4 class="my-3">Rápido</h4>
+					<p class="text-muted">Aqui voce encontra e realiza sua compra
+						de maneira prática e rápida!</p>
 				</div>
 				<div class="col-md-4">
 					<span class="fa-stack fa-4x"> <i
@@ -107,33 +107,13 @@
 					</span>
 					<h4 class="my-3">Compra Segura</h4>
 					<p class="text-muted">Compra segura e em parceiros confiaveis.
-						Caso nÃ£o receba o produto o reembolso Ã© imediato!</p>
+						Caso não receba o produto o reembolso é imediato!</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Footer-->
-	<footer class="footer py-4">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-4 text-lg-left">Copyright Â© DankiCommerce
-					2021</div>
-				<div class="col-lg-4 my-3 my-lg-0">
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-twitter"></i></a> <a
-						class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-facebook-f"></i></a> <a
-						class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-linkedin-in"></i></a>
-				</div>
-				<div class="col-lg-4 text-lg-right">
-					<a class="mr-3" href="#!">Privacy Policy</a> <a href="#!">Terms
-						of Use</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<tag:footer></tag:footer>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
