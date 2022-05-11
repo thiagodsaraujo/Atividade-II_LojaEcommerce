@@ -1,6 +1,7 @@
 package br.com.dankicommerce.model;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -25,6 +26,18 @@ public class Produto extends Model {
 	private Double valor;
 	
 	
+	@ManyToOne	@NotNull(message = "{produto.categoria.notnull}")
+	private Categoria categoria;
+	
+	
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 	public String getNome() {
 		return nome;
