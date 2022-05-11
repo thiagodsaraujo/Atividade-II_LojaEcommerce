@@ -82,7 +82,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group input-login mx-auto">
-                                <input class="form-control date-br" id="valor" type="date" placeholder="Data Validade *" data-validation-required-message="Digite a data de Validade do Produto" />
+                                <input name="produto.dataValidadeEn" value="${produto.dataValidade}" class="form-control date-br" id="valor" type="date" placeholder="Data Validade *" data-validation-required-message="Digite a data de Validade do Produto" />
                                 <p class="help-block text-danger"></p>
                             </div>
                            

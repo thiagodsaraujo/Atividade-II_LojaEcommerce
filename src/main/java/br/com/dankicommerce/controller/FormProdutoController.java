@@ -34,6 +34,7 @@ public class FormProdutoController {
 	@Post("salvaProduto")
 	@SomenteLogado
 	public void salvaProduto(@Valid Produto produto) {
+		
 		validator.onErrorRedirectTo(this).formproduto();
 		produtoDao.insertOrUpdate(produto);
 		result.redirectTo(ProdutosController.class).produtos();

@@ -1,7 +1,12 @@
 package br.com.dankicommerce.model;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,6 +14,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.dankicommerce.rn.ConverteDataDeEnParaCalendar;
 import br.com.olimposistema.aipa.model.Model;
 
 @Entity
@@ -30,6 +36,26 @@ public class Produto extends Model {
 	private Categoria categoria;
 	
 	
+	@Temporal(TemporalType.DATE) @NotNull(message = "{produto.dataValidade.notnull}")
+	private Calendar dataValidade;
+	
+	
+	
+	
+
+	public Calendar getDataValidade() {
+		return dataValidade;
+	}
+
+	public void setDataValidade(Calendar dataValidade) {
+		this.dataValidade = dataValidade;
+	}
+	
+	public void setDataValidadeEn(String data) {
+		if(data == null) return;
+		this.dataValidade = new ConverteDataDeEnParaCalendar().executa(data);
+		
+	}
 
 	public Categoria getCategoria() {
 		return categoria;
