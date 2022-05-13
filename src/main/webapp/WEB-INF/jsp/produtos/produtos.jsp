@@ -71,8 +71,8 @@
       </div>
       <div class="row">
       <c:forEach var="produto" items= "${produtos}">
-      
 		<!-- Inicio Card-->
+		
         <div class="col-lg-4 col-sm-6 mb-4">
           <div class="portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal${produto.id}">
@@ -81,19 +81,20 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
+              <img class="img-fluid" src="img/get/${produto.imagem.nome}" alt="" />
             </a>
             <div class="portfolio-caption">
-              <div class="portfolio-caption-heading">${produto.valor}</div>
+              <div class="portfolio-caption-heading">${produto.valorMoney}</div>
               <div class="portfolio-caption-subheading text-muted">
                 ${produto.nome}
               </div>
             </div>
           </div>
         </div>
+        
 		<!-- Fim do Card-->
         <!-- Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolio${produto.id} tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolioModal${produto.id}" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog mx-auto">
             <div class="modal-content">
               <div class="close-modal" data-dismiss="modal">
@@ -104,8 +105,8 @@
                   <div class="col-lg-8">
                     <div class="modal-body">
                       <!-- Project Details Go Here-->
-                      <img class="img-fluid d-block mx-auto img-modal" src="assets/img/portfolio/01-full.jpg" alt="" />
-                      <h2 class="text-uppercase">${produto.valor}</h2>
+                      <img class="img-fluid d-block mx-auto img-modal" src="img/get/${produto.imagem.nome}" alt="" />
+                      <h2 class="text-uppercase">${produto.valorMoney}</h2>
                       <p class="item-intro text-muted">
                         ${produto.nome}
                       </p>
@@ -113,7 +114,7 @@
                         ${produto.descricao}
                       </p>
                       <ul class="list-inline">
-                        <li>Oferta válida até: ${produto.dataValidade}</li>                     
+                        <li>Oferta válida até: ${produto.dataValidadeFormatada}</li>                     
                       </ul>
                       <div class="d-flex justify-content-center">
                         <div class="form-group mb-md-0 ml-2">
@@ -132,7 +133,8 @@
           </div>
         </div>
 		<! -- Fim do Modal -->
- 		      </c:forEach>
+		
+ 		</c:forEach>
       </div>
     </div>
   </section>
