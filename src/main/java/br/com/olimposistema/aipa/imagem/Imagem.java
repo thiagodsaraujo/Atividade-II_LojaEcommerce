@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.PreRemove;
+import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
@@ -90,7 +92,12 @@ public class Imagem extends Model implements PathAnexo {
 	public void onDelete() throws Exception {
 		this.deletaNoDisco();
 	}
-
+	
+	@PrePersist
+	@PreUpdate // antes de persistir ou update vai inserir no disco
+	public void insereNoDiscoAoPersistirOuAtualizar() throws Exception {
+		this.salvaNoDisco();
+	}
 	
 	
 }

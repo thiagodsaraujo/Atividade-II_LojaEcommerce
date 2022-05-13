@@ -3,8 +3,11 @@ package br.com.dankicommerce.model;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
@@ -15,6 +18,8 @@ import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.dankicommerce.rn.ConverteDataDeEnParaCalendar;
+import br.com.olimposistema.aipa.imagem.ImageController;
+import br.com.olimposistema.aipa.imagem.Imagem;
 import br.com.olimposistema.aipa.model.Model;
 
 @Entity
@@ -40,8 +45,24 @@ public class Produto extends Model {
 	private Calendar dataValidade;
 	
 	
+	// burocracia para usar a imagem, fetch.eaguer quando buscar o produto vai buscar também a imagem
 	
+	@OneToOne(
+			cascade = {CascadeType.PERSIST, 
+					CascadeType.MERGE, 
+					CascadeType.REMOVE}, 
+			fetch = FetchType.EAGER,
+			orphanRemoval = true)
+	private Imagem imagem;
 	
+
+	public Imagem getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(Imagem imagem) {
+		this.imagem = imagem;
+	}
 
 	public Calendar getDataValidade() {
 		return dataValidade;
