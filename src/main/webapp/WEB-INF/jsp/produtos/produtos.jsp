@@ -70,9 +70,12 @@
         </form>
       </div>
       <div class="row">
+      <c:forEach var="produto" items= "${produtos}">
+      
+		<!-- Inicio Card-->
         <div class="col-lg-4 col-sm-6 mb-4">
           <div class="portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal${produto.id}">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fas fa-plus fa-3x"></i>
@@ -81,16 +84,16 @@
               <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
             </a>
             <div class="portfolio-caption">
-              <div class="portfolio-caption-heading">R$ 99,00</div>
+              <div class="portfolio-caption-heading">${produto.valor}</div>
               <div class="portfolio-caption-subheading text-muted">
-                Camisa Polo Basica
+                ${produto.nome}
               </div>
             </div>
           </div>
         </div>
-
+		<!-- Fim do Card-->
         <!-- Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolio${produto.id} tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog mx-auto">
             <div class="modal-content">
               <div class="close-modal" data-dismiss="modal">
@@ -102,15 +105,15 @@
                     <div class="modal-body">
                       <!-- Project Details Go Here-->
                       <img class="img-fluid d-block mx-auto img-modal" src="assets/img/portfolio/01-full.jpg" alt="" />
-                      <h2 class="text-uppercase">R$ 99,00</h2>
+                      <h2 class="text-uppercase">${produto.valor}</h2>
                       <p class="item-intro text-muted">
-                        Camisa Polo Basica
+                        ${produto.nome}
                       </p>
                       <p>
-                        A camisa polo possui algumas qualidades e a maior delas sem dÃºvidas Ã© a sua versatilidade, pois vocÃª consegue usÃ¡-la nÃ£o sÃ³ em ambientes extremamente informais, como em ambientes atÃ© um pouco mais formais. EntÃ£o, esse tipo de camisa transita bem entre os dois, afinal ela estÃ¡ no meio do caminho entre o formal e o informal, entre uma camiseta e uma camisa social.
+                        ${produto.descricao}
                       </p>
                       <ul class="list-inline">
-                        <li>Valido AtÃ©: 01/03/2021</li>                     
+                        <li>Oferta válida até: ${produto.dataValidade}</li>                     
                       </ul>
                       <div class="d-flex justify-content-center">
                         <div class="form-group mb-md-0 ml-2">
@@ -128,97 +131,8 @@
             </div>
           </div>
         </div>
-
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <div class="portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/02-thumbnail.jpg" alt="" />
-            </a>
-            <div class="portfolio-caption">
-              <div class="portfolio-caption-heading">R$ 30,00</div>
-              <div class="portfolio-caption-subheading text-muted">
-                Bandeira Keep
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <div class="portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt="" />
-            </a>
-            <div class="portfolio-caption">
-              <div class="portfolio-caption-heading">R$ 95,00</div>
-              <div class="portfolio-caption-subheading text-muted">
-                Molde para Sapato
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-          <div class="portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/04-thumbnail.jpg" alt="" />
-            </a>
-            <div class="portfolio-caption">
-              <div class="portfolio-caption-heading">R$ 4.199,00</div>
-              <div class="portfolio-caption-subheading text-muted">
-                Camera Canon EOS
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-          <div class="portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/05-thumbnail.jpg" alt="" />
-            </a>
-            <div class="portfolio-caption">
-              <div class="portfolio-caption-heading">R$ 2.349,00</div>
-              <div class="portfolio-caption-subheading text-muted">
-                Notebook Inspiron 15 3000 4GB 500GB
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/06-thumbnail.jpg" alt="" />
-            </a>
-            <div class="portfolio-caption">
-              <div class="portfolio-caption-heading">R$ 2.549,00</div>
-              <div class="portfolio-caption-subheading text-muted">
-                iPhone SE Apple 64GB
-              </div>
-            </div>
-          </div>
-        </div>
+		<! -- Fim do Modal -->
+ 		      </c:forEach>
       </div>
     </div>
   </section>
