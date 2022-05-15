@@ -146,6 +146,7 @@
 		
  		</c:forEach>
       </div>
+      <p>Total de Produtos ${totalProdutos}</p>
     </div>
   </section>
 
