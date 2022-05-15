@@ -52,6 +52,6 @@ public class CadastrarController {
 		
 		// depois que persistir a classe vai redirecionar para a lsitagem de produtos
 		
-		result.redirectTo(ProdutosController.class).produtos();
+		result.redirectTo(ProdutosController.class).produtos(null);
 	}
 }

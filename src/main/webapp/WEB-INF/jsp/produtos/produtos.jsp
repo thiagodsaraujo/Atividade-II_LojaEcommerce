@@ -36,28 +36,38 @@
   <section class="page-section bg-light" id="portfolio">
     <div class="container">
       <div>
-        <form>
+        <form method="get" action="<c:url value="produtos"/>">
           <div class="row mb-5">
             <div class="col-md-6">
               <div class="form-group">
-                <input class="form-control" id="email" type="email" placeholder="Pesquisar.." required="required"
+                <input name="filtro.nome" value="${filtro.nome}" class="form-control" id="email" type="text" placeholder="Pesquisar.."
                   data-validation-required-message="Please enter your email address." />
                 <p class="help-block text-danger"></p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <select class="form-control" id="email" required="required"
+                <select name="filtro.categoria.id" class="form-control" id="email"
                   data-validation-required-message="Please enter your email address.">
-                  <option>Roupas</option>
-                  <option>AcessÃ³rios</option>
+                  
+                  <option value="">(Todos)</option>
+                  
+                  <!-- Para que a categoria selecionada continue no form vamos fazer um if ternario abaixo
+                  se o id da categoria que ta percorrendo é igual ao do filtro( que é um produto) 
+                  pega a option e escreve um selected nela, se nao nada...-->
+                  <c:forEach var="categoria" items="${categorias}">
+                    <option ${(filtro != null && filtro.categoria !=null 
+                    && categoria.id == filtro.categoria.id) ? "selected":""} 
+                    value = "${categoria.id}">${categoria.getNome()}</option>
+                  </c:forEach>
+                  
                 </select>
                 <p class="help-block text-danger"></p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group mb-md-0">
-                <button class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">Pesquisar</button>
+                <button type="submit" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">Pesquisar</button>
               </div>
             </div>
           </div>

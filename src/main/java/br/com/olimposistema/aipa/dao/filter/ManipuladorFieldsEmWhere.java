@@ -115,7 +115,7 @@ public class ManipuladorFieldsEmWhere<T> {
 		try {
 			valor = new StringService(valor).maiusculoSemAcentoESemEspacosAMais();
 		}catch (Exception e) {}
-		return valor+"%";
+		return "%" + valor + "%";
 	}
 
 	private boolean ehUmaSubClasseDeModel(Field field) {

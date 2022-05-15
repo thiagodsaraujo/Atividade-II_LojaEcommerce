@@ -19,6 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.dankicommerce.rn.ConverteDataDeEnParaCalendar;
 import br.com.dankicommerce.rn.FormataDeDoubleParaReais;
+import br.com.olimposistema.aipa.dao.filter.FiltrableName;
 import br.com.olimposistema.aipa.imagem.Imagem;
 import br.com.olimposistema.aipa.model.Model;
 
@@ -26,6 +27,7 @@ import br.com.olimposistema.aipa.model.Model;
 public class Produto extends Model {
 	
 	@NotEmpty(message = "{produto.nome.vazio}") @Size(min = 2, max = 150, message = "{produto.nome.size}")
+	@FiltrableName
 	private String nome;
 	// o padrao se nao setar min e max, vai ser 255... e a descricao terá mais que isso e sem limites de caracteres fazemos assim
 	// Type = text
